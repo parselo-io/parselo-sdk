@@ -1,6 +1,6 @@
 {
   "name": "@parselo/capacitor-pdf417",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/parselo-io/parselo-sdk.git",
@@ -32,7 +32,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build"
   },
   "capacitor": {
     "ios": {
