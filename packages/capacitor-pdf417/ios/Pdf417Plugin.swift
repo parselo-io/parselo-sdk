@@ -4,7 +4,12 @@ import Vision
 import UIKit
 
 @objc(Pdf417Plugin)
-public class Pdf417Plugin: CAPPlugin {
+public class Pdf417Plugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "Pdf417Plugin"
+    public let jsName = "Pdf417"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "decodePdf417", returnType: CAPPluginReturnPromise)
+    ]
 
     @objc func decodePdf417(_ call: CAPPluginCall) {
         guard let imageStr = call.getString("image") else {

@@ -1,6 +1,6 @@
 {
   "name": "@parselo/capacitor-mrz",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/parselo-io/parselo-sdk.git",
@@ -25,7 +25,9 @@
   "files": [
     "dist/",
     "ios/",
-    "android/",
+    "android/src/main/",
+    "android/build.gradle",
+    "Package.swift",
     "ParseloCapacitorMrz.podspec",
     "README.md"
   ],
@@ -41,7 +43,7 @@
     }
   },
   "peerDependencies": {
-    "@capacitor/core": "^6.0.0"
+    "@capacitor/core": "^6.0.0 || ^7.0.0 || ^8.0.0"
   },
   "devDependencies": {
     "@capacitor/core": "^6.0.0",

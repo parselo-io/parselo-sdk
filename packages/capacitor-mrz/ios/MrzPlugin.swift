@@ -4,7 +4,12 @@ import Vision
 import UIKit
 
 @objc(MrzPlugin)
-public class MrzPlugin: CAPPlugin {
+public class MrzPlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "MrzPlugin"
+    public let jsName = "Mrz"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "recognizeText", returnType: CAPPluginReturnPromise)
+    ]
 
     @objc func recognizeText(_ call: CAPPluginCall) {
         guard let imageStr = call.getString("image") else {

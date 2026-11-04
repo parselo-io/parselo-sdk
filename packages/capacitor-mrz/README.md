@@ -38,10 +38,16 @@ Add to `ios/App/App/Info.plist` (if not already present):
 <string>Used to scan the MRZ on your travel document.</string>
 ```
 
-CocoaPods installs the `MrzPlugin.m` ObjC bridge automatically. If the plugin
-throws "not implemented" at runtime, verify that `pod install` ran after
-`cap sync` and that `MrzPlugin.m` is listed in the Xcode target's Compile
-Sources.
+Both iOS package managers are supported:
+
+- **Swift Package Manager** (Capacitor 8, iOS 15+) — the package root ships a
+  `Package.swift`; `npx cap sync` adds it to your app's `CapApp-SPM` package.
+- **CocoaPods** (Capacitor 6–8) — `npx cap sync` runs `pod install` with
+  `ParseloCapacitorMrz.podspec`.
+
+If the plugin throws "not implemented" at runtime, re-run `npx cap sync ios`
+and check that `MrzPlugin` appears in `packageClassList` in
+`ios/App/App/capacitor.config.json`.
 
 ### Android
 
