@@ -1,0 +1,42 @@
+{
+  "name": "@parselo/scanner-core",
+  "version": "0.4.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parselo-io/parselo-sdk.git",
+    "directory": "packages/scanner-core"
+  },
+  "description": "Platform-agnostic core: AAMVA / magstripe / health card (Ontario, Quebec) / MRZ / INE parsing, offline license verification, and PII-free scan analytics.",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./mint": {
+      "types": "./dist/mint.d.ts",
+      "import": "./dist/mint.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --experimental-strip-types src/test.ts",
+    "mint": "node tools/mint-token.mjs",
+    "verify": "node --experimental-strip-types tools/verify-token.ts"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-kms": "^3.600.0",
+    "typescript": "^5.5.0"
+  }
+}

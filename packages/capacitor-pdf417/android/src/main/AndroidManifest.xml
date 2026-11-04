@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Minimal: the package/namespace comes from build.gradle (AGP 7+), and this
+     plugin decodes a supplied image rather than opening the camera, so it needs
+     no permissions of its own. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+</manifest>

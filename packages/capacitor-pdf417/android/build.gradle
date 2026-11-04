@@ -1,0 +1,51 @@
+// Android build for @idscan/capacitor-pdf417.
+// SDK/AGP/Kotlin versions fall back to the host app's rootProject.ext when synced,
+// so this inherits whatever your app already uses. The buildscript classpath and
+// Kotlin plugin are the most version-sensitive part — if a sync complains, align
+// these with your app's gradle (or regenerate via `npm init @capacitor/plugin`).
+
+ext {
+    pdf417MlkitVersion = project.hasProperty('mlkitBarcodeVersion') ? rootProject.ext.mlkitBarcodeVersion : '17.3.0'
+}
+
+buildscript {
+    ext.kotlin_version = project.hasProperty('kotlinVersion') ? rootProject.ext.kotlinVersion : '1.9.25'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace "com.idscan.pdf417"
+    compileSdk project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 34
+    defaultConfig {
+        minSdkVersion project.hasProperty('minSdkVersion') ? rootProject.ext.minSdkVersion : 23
+        targetSdkVersion project.hasProperty('targetSdkVersion') ? rootProject.ext.targetSdkVersion : 34
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':capacitor-android')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "com.google.mlkit:barcode-scanning:$pdf417MlkitVersion"
+}

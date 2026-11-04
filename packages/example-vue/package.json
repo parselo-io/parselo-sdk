@@ -1,0 +1,31 @@
+{
+  "name": "@idscan/example-vue",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "cap:sync": "npx cap sync"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/camera": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/ios": "^6.0.0",
+    "@capacitor/device": "^6.0.0",
+    "@capacitor/preferences": "^6.0.0",
+    "@parselo/capacitor-mrz": "*",
+    "@parselo/capacitor-pdf417": "*",
+    "@parselo/scanner-core": "*",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "^5.5.0",
+    "vite": "^6.3.5",
+    "vue-tsc": "^2.2.0"
+  }
+}

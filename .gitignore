@@ -1,0 +1,20 @@
+node_modules/
+dist/
+build/
+.env
+.env.local
+*.env.*.local
+*.log
+.DS_Store
+coverage/
+
+# Android build artifacts
+**/android/build/
+**/android/.gradle/
+**/android/.cxx/
+.gradle/
+.cxx/
+
+# Local device-test assets (e.g. a badge or ID image loaded from the photo library
+# during testing). Never commit real people's images or document data.
+packages/example-vue/__test-assets__/

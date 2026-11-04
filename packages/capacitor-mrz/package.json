@@ -1,0 +1,50 @@
+{
+  "name": "@parselo/capacitor-mrz",
+  "version": "0.3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parselo-io/parselo-sdk.git",
+    "directory": "packages/capacitor-mrz"
+  },
+  "description": "Native MRZ text recognition (Apple Vision / Android ML Kit) for Capacitor. Returns recognised lines; scanner-core locates and parses the MRZ.",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/",
+    "ios/",
+    "android/",
+    "ParseloCapacitorMrz.podspec",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^6.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/core": "^6.0.0",
+    "typescript": "^5.5.0"
+  }
+}

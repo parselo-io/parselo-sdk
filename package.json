@@ -1,0 +1,16 @@
+{
+  "name": "parselo-sdk",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/scanner-core",
+    "packages/capacitor-pdf417",
+    "packages/capacitor-mrz",
+    "packages/example-vue"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspace @parselo/scanner-core"
+  }
+}
