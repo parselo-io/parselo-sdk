@@ -30,7 +30,8 @@ const PREF_CAPTURE_METHOD = "badgeCheckin.captureMethod";
 const proxyUrl       = ref(import.meta.env.VITE_BADGE_CHECKIN_PROXY_URL ?? "");
 const repId          = ref("dd3d33");
 const mode           = ref<Mode>("3-leg");
-// single-photo always runs the full 3-leg-equivalent check server-side regardless of `mode`
+// single-photo ignores `mode` server-side: 3-leg, or 2-leg if the account's dashboard setting
+// "Skip the badge-photo face match" is on
 // (see verify-checkin.ts) — the mode toggle only applies to two-photos capture.
 const captureMethod  = ref<CaptureMethod>("single-photo");
 
@@ -270,7 +271,7 @@ const legRows = computed(() => {
         <button :class="{ active: mode === '2-leg' }" @click="mode = '2-leg'">2-leg</button>
         <button :class="{ active: mode === '3-leg' }" @click="mode = '3-leg'">3-leg</button>
       </div>
-      <p v-else class="capture-hint">Single-photo capture always runs the full 3-leg check server-side.</p>
+      <p v-else class="capture-hint">Single-photo capture ignores this: the account's dashboard setting decides (3-leg by default).</p>
     </div>
 
     <!-- Captures -->
